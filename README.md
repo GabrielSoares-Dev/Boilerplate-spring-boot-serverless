@@ -63,7 +63,5 @@ The project includes a configured pipeline for:
   - Builds the application.
   - Deploys to **AWS via Serverless Framework**.
 
-## Author
-
-Developed by **Gabriel Soares Maciel**.
+## By Gabriel Soares Maciel
 
