@@ -4,6 +4,15 @@ provider:
   name: aws
   runtime: java21  
   region: us-east-2
+  httpApi:
+    id: ${ssm:/${self:custom.stage}/api-gw/${self:service}/id}
+  iam:
+    role:
+      statements:
+      - Effect: Allow
+        Action:
+        - ssm:GetParameter
+        Resource: arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/*
   environment:
     DB_HOST: ${ssm:/${self:custom.stage}/database/mysql/host}
     DB_NAME: boilerplate-spring-boot-serverless
