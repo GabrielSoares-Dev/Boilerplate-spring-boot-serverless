@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  boilerplate-spring-boot-docker:
+    container_name: boilerplate-spring-boot-docker
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    networks:
+      - boilerplate-spring-boot-docker-network
+      - mysql-network
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app/boilerplate-spring-boot-docker
+      - volume-boilerplate-spring-boot-docker-node_modules:/app/boilerplate-spring-boot-docker/node_modules
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+volumes:
+  volume-boilerplate-spring-boot-docker-node_modules:
+    name: volume-boilerplate-spring-boot-docker-node_modules
+
+networks:
+   boilerplate-spring-boot-docker-network:
+    name: boilerplate-spring-boot-docker-network
+    driver: bridge
+   mysql-network:
+    name: mysql-network
+    external: true

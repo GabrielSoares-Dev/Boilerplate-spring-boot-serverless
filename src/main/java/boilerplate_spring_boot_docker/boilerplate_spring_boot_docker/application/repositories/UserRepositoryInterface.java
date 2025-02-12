@@ -1,0 +1,11 @@
+package boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.repositories;
+
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.user.create.CreateUserRepositoryInputDto;
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.user.findByEmail.FindUserByEmailRepositoryOutputDto;
+import java.util.Optional;
+
+public interface UserRepositoryInterface {
+  void create(CreateUserRepositoryInputDto input);
+
+  Optional<FindUserByEmailRepositoryOutputDto> findByEmail(String email);
+}

@@ -1,0 +1,19 @@
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+
+WORKDIR /app/boilerplate-spring-boot-docker
+
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:21-jre-alpine AS runner
+
+WORKDIR /app/boilerplate-spring-boot-docker
+
+COPY --from=build /app/boilerplate-spring-boot-docker/target/boilerplate_spring_boot_docker-0.0.1-SNAPSHOT-exec.jar app.jar
+
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

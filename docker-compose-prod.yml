@@ -1,0 +1,21 @@
+version: "3.5"
+
+services:
+ boilerplate-spring-boot-docker:
+  container_name: boilerplate-spring-boot-docker
+  image: gabrielsoaresdev/boilerplate-spring-boot-docker-dev:latest
+  restart: always
+  ports:
+   - "8080:8080"
+  networks:
+   - boilerplate-spring-boot-docker-network
+   - mysql-network
+  env_file:
+    - stack.env
+networks:
+   boilerplate-spring-boot-docker-network:
+    name: boilerplate-spring-boot-docker-network
+    driver: bridge
+   mysql-network:
+    name: mysql-network
+    external: true

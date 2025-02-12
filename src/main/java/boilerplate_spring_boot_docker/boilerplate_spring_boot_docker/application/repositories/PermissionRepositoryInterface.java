@@ -1,0 +1,23 @@
+package boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.repositories;
+
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.permission.create.CreatePermissionRepositoryInputDto;
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.permission.findAll.FindAllPermissionsRepositoryOutputDto;
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.permission.findById.FindPermissionByIdRepositoryOutputDto;
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.permission.findByName.FindPermissionByNameRepositoryOutputDto;
+import boilerplate_spring_boot_docker.boilerplate_spring_boot_docker.application.dtos.repositories.permission.update.UpdatePermissionRepositoryInputDto;
+import java.util.List;
+import java.util.Optional;
+
+public interface PermissionRepositoryInterface {
+  void create(CreatePermissionRepositoryInputDto input);
+
+  List<FindAllPermissionsRepositoryOutputDto> findAll();
+
+  Optional<FindPermissionByIdRepositoryOutputDto> findById(Integer id);
+
+  Optional<FindPermissionByNameRepositoryOutputDto> findByName(String name);
+
+  void update(UpdatePermissionRepositoryInputDto input);
+
+  void delete(Integer id);
+}

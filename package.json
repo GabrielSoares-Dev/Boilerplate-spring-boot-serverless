@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "mvn clean package -DskipTests",
+        "install:java:dependencies": "mvn install -DskipTests",
+        "start:dev": "mvn spring-boot:run",
+        "db:migrate": "mvn flyway:migrate",
+        "lint:test": "mvn spotless:check",
+        "lint:fix": "mvn spotless:apply",
+        "test": "mvn test",
+        "test:coverage": "mvn test jacoco:report",
+        "test:pipeline": "mvn test -Punconflicted-tests jacoco:report"
+    },
+    "devDependencies": {}
+}
