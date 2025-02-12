@@ -1,0 +1,3 @@
+  handler: boilerplate_spring_boot_serverless.boilerplate_spring_boot_serverless.infra.functions.api.HttpLambdaHandler
+  events:
+   - httpApi: '*'

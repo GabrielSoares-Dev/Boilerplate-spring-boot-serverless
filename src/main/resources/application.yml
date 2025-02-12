@@ -1,6 +1,6 @@
 spring:
   application:
-    name: boilerplate_spring_boot_docker
+    name: boilerplate_spring_boot_serverless_test
   datasource:
     url: jdbc:mysql://${DB_HOST}/${DB_NAME}
     username: ${DB_USERNAME}

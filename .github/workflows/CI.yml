@@ -7,7 +7,7 @@ on:
 jobs:
   spring_boot:
     name: CI
-    uses: GabrielSoares-Dev/workflows/.github/workflows/spring-boot-docker-portainer-CI.yml@master
+    uses: GabrielSoares-Dev/workflows/.github/workflows/spring-boot-serverless-CI.yml@master
     with:
       node_version: '18.*'
       java_version: '21'

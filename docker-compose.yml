@@ -1,0 +1,28 @@
+version: '3.5'
+services:
+  boilerplate-spring-boot-serverless:
+    container_name: boilerplate-spring-boot-serverless
+    build: .
+    networks:
+      - boilerplate-spring-boot-serverless-network
+      - mysql-network
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app/boilerplate-spring-boot-serverless
+      - volume-boilerplate-spring-boot-serverless-node_modules:/app/boilerplate-spring-boot-serverless/node_modules
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+volumes:
+  volume-boilerplate-spring-boot-serverless-node_modules:
+    name: volume-boilerplate-spring-boot-serverless-node_modules
+
+networks:
+   boilerplate-spring-boot-serverless-network:
+    name: boilerplate-spring-boot-serverless-network
+    driver: bridge
+   mysql-network:
+    name: mysql-network
+    external: true
