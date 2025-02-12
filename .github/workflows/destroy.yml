@@ -1,0 +1,13 @@
+name: DESTROY - DEV
+on:
+   workflow_dispatch:
+jobs:
+  spring_boot_serverless:
+    name: deploy
+    uses: GabrielSoares-Dev/workflows/.github/workflows/spring-boot-serverless-destroy.yml@master
+    with:
+      node_version: '18.*'
+      java_version: '21'
+    secrets:
+      aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+      aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
