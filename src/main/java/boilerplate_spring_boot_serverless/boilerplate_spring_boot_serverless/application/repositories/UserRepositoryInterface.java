@@ -1,0 +1,11 @@
+package boilerplate_spring_boot_serverless.boilerplate_spring_boot_serverless.application.repositories;
+
+import boilerplate_spring_boot_serverless.boilerplate_spring_boot_serverless.application.dtos.repositories.user.create.CreateUserRepositoryInputDto;
+import boilerplate_spring_boot_serverless.boilerplate_spring_boot_serverless.application.dtos.repositories.user.findByEmail.FindUserByEmailRepositoryOutputDto;
+import java.util.Optional;
+
+public interface UserRepositoryInterface {
+  void create(CreateUserRepositoryInputDto input);
+
+  Optional<FindUserByEmailRepositoryOutputDto> findByEmail(String email);
+}

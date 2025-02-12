@@ -1,0 +1,18 @@
+service: boilerplate-spring-boot-serverless
+
+provider:
+  name: aws
+  runtime: java21  
+  region: us-east-2
+  environment:
+    DB_HOST: ${ssm:/${self:custom.stage}/database/mysql/host}
+    DB_NAME: boilerplate-spring-boot-serverless
+    DB_USERNAME: ${ssm:/${self:custom.stage}/database/mysql/username/admin}
+    DB_PASSWORD: ${ssm:/${self:custom.stage}/database/mysql/password/admin}
+    LOG_LEVEL: INFO
+package:
+  artifact: target/boilerplate_spring_boot_serverless-0.0.1-SNAPSHOT.jar
+custom:
+  functionsDir: src/main/java/boilerplate_spring_boot_serverless/boilerplate_spring_boot_serverless/infra/functions
+functions:
+   - ${file(${self:custom.functionsDir}/api/handler.yml)}

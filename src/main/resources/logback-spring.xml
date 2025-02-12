@@ -8,7 +8,7 @@
         <appender-ref ref="CONSOLE" />
     </root>
 
-    <logger name="boilerplate_spring_boot_docker.boilerplate_spring_boot_docker" level="DEBUG" additivity="false">
+    <logger name="boilerplate_spring_boot_serverless.boilerplate_spring_boot_serverless" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE" />
     </logger>
 </configuration>

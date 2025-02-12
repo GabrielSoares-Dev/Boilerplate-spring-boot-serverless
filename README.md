@@ -1,4 +1,4 @@
-# Spring Boot Boilerplate Docker Portainer
+# Spring Boot Boilerplate Serverless
 
 This repository is a boilerplate for Spring Boot applications, including permission services, authentication, linting, test coverage, and CI/CD pipelines for automated deployment.
 
